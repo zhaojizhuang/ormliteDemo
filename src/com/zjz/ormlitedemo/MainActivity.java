@@ -17,14 +17,14 @@ import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.ForeignCollection;
 import com.wellgood.ormlitedemo.R;
 import com.zjz.DAO.DatabaseHelper;
-import com.zjz.DAO.DeptDao;
-import com.zjz.model.Dept;
+import com.zjz.DAO.SchoolDao;
+import com.zjz.model.School;
 import com.zjz.model.User;
 
 public class MainActivity extends Activity {  
   
-    Button button1;//员工信息录入按钮  
-    Button button2;//员工信息显示按钮  
+    Button button1;//信息录入按钮  
+    Button button2;//信息显示按钮  
     TextView textView;//用来显示查询到的用户信息  
     @Override  
     protected void onCreate(Bundle savedInstanceState) {  
@@ -46,22 +46,22 @@ public class MainActivity extends Activity {
         button2.setOnClickListener(new OnClickListener() {  
             @Override  
             public void onClick(View v) {  
-                List<Dept> list = new DeptDao(MainActivity.this).queryForAll();
-                Log.i("test", "有没有部门？----------------"+list.size());  
-                Dept dept = null;  
+                List<School> list = new SchoolDao(MainActivity.this).queryForAll();
+                Log.i("test", "有没有学校？----------------"+list.size());  
+                School school = null;  
                 if(list.size()>0){  
                 	 String str="";
                 	for (int i = 0; i < list.size(); i++) {
-                		  dept = new DeptDao(MainActivity.this).queryForId(list.get(i).getDeptId());  
-                		  Log.d("tag", "dept"+dept+"-------i:"+i);
-                		   str += dept.getDeptName()+" 部门下有以下职员：";  
-                          ForeignCollection<User> orders = dept.getUsers();  
+                		  school = new SchoolDao(MainActivity.this).queryForId(list.get(i).getschoolId());  
+                		  Log.d("tag", "school"+school+"-------i:"+i);
+                		   str += school.getschoolName()+" 学校有这些学生：";  
+                          ForeignCollection<User> orders = school.getUsers();  
                           CloseableIterator<User> iterator = orders.closeableIterator();  
                           String users="";
                           try {  
                               while(iterator.hasNext()){  
                                   User user = iterator.next();  
-                                  users+=user.getId()+"号:"+user.getUserName()+" 年龄："+user.getAge()+"  受雇日期： "+user.getDate()+";"; 
+                                  users+=user.getId()+"号:"+user.getUserName()+" 年龄："+user.getAge()+";"; 
                                   Log.d("tag", "users"+users+"-------i:"+i);
                               }  
                           } finally {  
@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
                   
                     textView.setText(str);  
                 }else{  
-                    textView.setText("亲！还没有部门吧！");  
+                    textView.setText("还没有录入学校！");  
                 }  
             }  
         });  

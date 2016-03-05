@@ -11,7 +11,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.zjz.model.Dept;
+import com.zjz.model.School;
 import com.zjz.model.TaskEntity;
 import com.zjz.model.TaskNodeEntity;
 import com.zjz.model.User;
@@ -21,7 +21,7 @@ public  class DatabaseHelper extends OrmLiteSqliteOpenHelper
 	private static final String TABLE_NAME = "sqlite.db";
 
 	private Map<String, Dao> daos = new HashMap<String, Dao>();
-	private static final int TABLE_VERSION=9; 
+	private static final int TABLE_VERSION=6; 
 
 	private DatabaseHelper(Context context)
 	{
@@ -37,7 +37,7 @@ public  class DatabaseHelper extends OrmLiteSqliteOpenHelper
 			TableUtils.createTable(connectionSource, User.class);
 			TableUtils.createTable(connectionSource, TaskEntity.class);
 			TableUtils.createTable(connectionSource, TaskNodeEntity.class);
-			TableUtils.createTable(connectionSource, Dept.class);
+			TableUtils.createTable(connectionSource, School.class);
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
@@ -53,7 +53,7 @@ public  class DatabaseHelper extends OrmLiteSqliteOpenHelper
 			TableUtils.dropTable(connectionSource, User.class, true);
 			TableUtils.dropTable(connectionSource, TaskEntity.class, true);
 			TableUtils.dropTable(connectionSource, TaskNodeEntity.class, true);
-			TableUtils.dropTable(connectionSource, Dept.class, true);
+			TableUtils.dropTable(connectionSource, School.class, true);
 			onCreate(database, connectionSource);
 		} catch (SQLException e)
 		{

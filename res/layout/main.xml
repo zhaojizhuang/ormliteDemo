@@ -14,25 +14,14 @@
         android:id="@+id/main_btn_inputinfo"  
         android:layout_width="wrap_content"  
         android:layout_height="wrap_content"  
-        android:text="员工信息录入"/>  
+        android:text="学生信息录入"/>  
       
     <Button   
         android:id="@+id/main_btn_show"  
         android:layout_width="wrap_content"  
         android:layout_height="wrap_content"  
-        android:text="员工信息显示"/>  
+        android:text="学生信息显示"/>  
       
-    <!-- <Button   
-        android:id="@+id/main_btn_delete"  
-        android:layout_width="wrap_content"  
-        android:layout_height="wrap_content"  
-        android:text="删除"/>  
-      
-    <Button   
-        android:id="@+id/main_btn_deleteAll"  
-        android:layout_width="wrap_content"  
-        android:layout_height="wrap_content"  
-        android:text="批量删除"/> -->  
       <ScrollView 
           android:layout_width="wrap_content"
           android:layout_height="wrap_content">

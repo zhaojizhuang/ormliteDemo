@@ -18,20 +18,17 @@ public class User
 	private int id=-1;
 	@DatabaseField  
     private String userName;  
-    //密码  
+    //年龄
     @DatabaseField  
     private int age;  
-    //入职时间  
-    @DatabaseField(format="DATE_STRING")  
-    private Date date;  
-    //用户所属部门  
+    //用户所属学校
     /** 
      * foreign = true:说明这是一个外部引用关系 
      * foreignAutoRefresh = true：当对象被查询时，外部属性自动刷新 
      *  
      */  
     @DatabaseField(foreign = true,foreignAutoRefresh = true)  
-    private Dept dept;  
+    private School school;  
 
 	public User()
 	{
@@ -63,27 +60,22 @@ public class User
 		this.age = age;
 	}
 
-	public Date getDate() {
-		return date;
+	public School getSchool() {
+		return school;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public Dept getDept() {
-		return dept;
-	}
-
-	public void setDept(Dept dept) {
-		this.dept = dept;
+	public void setSchool(School school) {
+		this.school = school;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", age=" + age
-				+ ", date=" + date + ", dept=" + dept + "]";
+				+ ", school=" + school + "]";
 	}
+
+
+
 
 	
 

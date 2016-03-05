@@ -8,16 +8,16 @@ import android.content.Context;
 import android.util.Log;
 
 import com.j256.ormlite.dao.Dao;
-import com.zjz.model.Dept;
+import com.zjz.model.School;
 
 /**
  * 定义数据访问对象，对指定的表进行增删改查操作
  * @author 
  *
  */
-public class DeptDao {
+public class SchoolDao {
 	public static String TAG="SQLite";
-    private Dao<Dept, Integer> deptDao;
+    private Dao<School, Integer> schoolDao;
     private DatabaseHelper dbHelper;
 
     /**
@@ -25,11 +25,11 @@ public class DeptDao {
      * 获得数据库帮助类实例，通过传入Class对象得到相应的Dao
      * @param context
      */
-    public DeptDao(Context context) {
+    public SchoolDao(Context context) {
         try {
-        	Log.i(TAG, "deptDAO实例化");
+        	Log.i(TAG, "SchoolDao实例化");
             dbHelper = DatabaseHelper.getHelper(context);
-            deptDao = dbHelper.getDao(Dept.class);
+            schoolDao = dbHelper.getDao(School.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -39,11 +39,11 @@ public class DeptDao {
      * 添加一条记录
      * @param theme
      */
-    public void add(Dept dept) {
+    public void add(School school) {
     	
         try {
-        	Log.i(TAG, "添加一条记录:"+dept);
-            deptDao.create(dept);
+        	Log.i(TAG, "添加一条记录:"+school);
+            schoolDao.create(school);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,10 +53,10 @@ public class DeptDao {
      * 删除一条记录
      * @param theme
      */
-    public void delete(Dept dept) {
+    public void delete(School school) {
         try {
-        	Log.i(TAG, "删除一条记录:"+dept);
-            deptDao.delete(dept);
+        	Log.i(TAG, "删除一条记录:"+school);
+            schoolDao.delete(school);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,10 +67,10 @@ public class DeptDao {
      * 更新一条记录
      * @param theme
      */
-    public void update(Dept dept) {
-    	Log.i(TAG, "更新一条记录:"+dept);
+    public void update(School school) {
+    	Log.i(TAG, "更新一条记录:"+school);
         try {
-            deptDao.update(dept);
+            schoolDao.update(school);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -81,15 +81,15 @@ public class DeptDao {
      * @param id
      * @return
      */
-    public Dept queryForId(int id) {
+    public School queryForId(int id) {
     	Log.i(TAG, "查询一条记录，根据id:"+id);
-    	Dept dept = null;
+    	School school = null;
         try {
-            dept = deptDao.queryForId(id);
+            school = schoolDao.queryForId(id);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return dept;
+        return school;
     }
 
 
@@ -97,15 +97,15 @@ public class DeptDao {
      * 查询所有记录
      * @return
      */
-    public List<Dept> queryForAll() {
-    	Log.i(TAG, "查询dept所有记录");
-        List<Dept> depts = new ArrayList<Dept>();
+    public List<School> queryForAll() {
+    	Log.i(TAG, "查询School所有记录");
+        List<School> schools = new ArrayList<School>();
         try {
-            depts = deptDao.queryForAll();
+            schools = schoolDao.queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return depts;
+        return schools;
     }
 
 }

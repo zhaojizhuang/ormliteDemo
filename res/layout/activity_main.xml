@@ -47,20 +47,6 @@
             android:layout_height="wrap_content"/>  
     </LinearLayout>  
       
-    <LinearLayout   
-        android:layout_width="fill_parent"  
-        android:layout_height="wrap_content"  
-        android:gravity="center"  
-        android:orientation="horizontal">  
-        <TextView   
-            android:layout_width="wrap_content"  
-            android:layout_height="wrap_content"  
-            android:text="入职时间："/>  
-        <EditText  
-            android:id="@+id/et_date"  
-            android:layout_width="fill_parent"  
-            android:layout_height="wrap_content"/>  
-    </LinearLayout>  
       
     <LinearLayout   
         android:layout_width="fill_parent"  
@@ -70,9 +56,9 @@
         <TextView   
             android:layout_width="wrap_content"  
             android:layout_height="wrap_content"  
-            android:text="部门："/>  
+            android:text="学校："/>  
         <EditText  
-            android:id="@+id/et_dept"  
+            android:id="@+id/et_school"  
             android:layout_width="fill_parent"  
             android:layout_height="wrap_content"/>  
     </LinearLayout>  
